@@ -51,7 +51,10 @@
 
 #' @rdname gg-add
 #' @export
-"%+%" <- `+.gg`
+#"%+%" <- `+.gg`
+"%+%" <- function(...) UseMethod("%+%")
+"%+%.theme" <- `+.gg`
+"%+%.ggplot" <- `+.gg`    
 
 add_ggplot <- function(p, object, objectname) {
   if (is.null(object)) return(p)
